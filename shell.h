@@ -12,5 +12,10 @@
 #include<fcntl.h>
 
 int _strcmp(char *s1, char *s2);
+char *_strcpy(char *dest, char *src);
+int _strlen(char *s);
+char *_strdup(const char *str);
+void tokenization(char *input, char *tokens[]);
+ar *get_line(void);
 
 #endif
