@@ -3,20 +3,29 @@
 /**
  * tokenization - a function that parses user input
  * @input: user inputs
- * @tokens: tokens
  *
  * Return: tokens
  */
 
-void tokenization(char *input, char *tokens[])
+char **tokenization(char *input)
 {
 	int i = 0;
-	char *token = strtok(input, " \t\n");
+	char **tokens;
+	char *token;
 
-	while (token != NULL)
+	tokens = (char **)malloc(sizeof(char *) * MAX_TOKENS);
+	if (tokens == NULL)
+	{
+		perror("malloc failed");
+		exit(EXIT_FAILURE);
+	}
+	token = strtok(input, " \t\n");
+
+	while (token != NULL && i < MAX_TOKENS - 1)
 	{
 		tokens[i++] = _strdup(token);
 		token = strtok(NULL, " \t\n");
 	}
 	tokens[i] = NULL;
+	return (tokens);
 }

@@ -61,21 +61,25 @@ int _strcmp(char *s1, char *s2)
  */
 char *_strdup(const char *str)
 {
-	size_t len;
+	int i, len = 0;
 	char *duplicate;
 
 	if (str == NULL)
 	{
 	return (NULL);
 	}
-	len = _stlen(str);
+	while (*str != '\0')
+	{
+		len++;
+		str++;
+	}
 	duplicate = (char *)malloc(len + 1);
 	if (duplicate == NULL)
 	{
 		return (NULL);
 	}
-	_strcpy(duplicate, str);
+	for (i = 0; i <= len; i++)
+		duplicate[i] = str[i];
 
 	return (duplicate);
-}
 }

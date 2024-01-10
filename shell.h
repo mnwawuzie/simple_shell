@@ -11,11 +11,15 @@
 #include <errno.h>
 #include<fcntl.h>
 
+#define MAX_TOKENS 50
+
 int _strcmp(char *s1, char *s2);
 char *_strcpy(char *dest, char *src);
 int _strlen(char *s);
 char *_strdup(const char *str);
-void tokenization(char *input, char *tokens[]);
-ar *get_line(void);
+char **tokenization(char *input);
+char *get_line(void);
+void free_tokens(char **tokens);
+int execute_command(char **command);
 
 #endif
