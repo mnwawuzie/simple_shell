@@ -37,7 +37,7 @@ char *divas_getenv(info_t *divas_info, const char *d_name)
 /**
  * _setdivaenv - This is a function to Initialize a new environment variable,
  *             or modify an existing one
- * @divas_info: The d_structure containing potential arguments. Used to maintain
+ * @divas_info: The structure containing potential arguments, Used to maintain
  *        constant function prototype.
  *  Return: 0
  */

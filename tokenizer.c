@@ -17,7 +17,8 @@ char **d_strtow(char *d_str, char *d)
 	if (!d)
 		d = " ";
 	for (i = 0; d_str[i] != '\0'; i++)
-		if (!is_diva_delimiter(d_str[i], d) && (is_diva_delimiter(d_str[i + 1], d) || !d_str[i + 1]))
+		if (!is_diva_delimiter(d_str[i], d)
+		&& (is_diva_delimiter(d_str[i + 1], d) || !d_str[i + 1]))
 			numwords++;
 
 	if (numwords == 0)

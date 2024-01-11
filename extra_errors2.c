@@ -48,7 +48,7 @@ void d_print_error(info_t *divas_info, char *fd_str)
 
 /**
  * d_print_d - function prints a decimal (integer) number (d_base 10)
- * @input: the input
+ * @d_input: the input
  * @d_fd: the filedescriptor to write to
  *
  * Return: number of characters printed

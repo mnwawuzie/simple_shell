@@ -187,8 +187,8 @@ int _diva_myhelp(info_t *);
 int _diva_myexit(info_t *);
 
 /* for the toem_builtin1.c */
- int _diva_history(info_t *);
- int _divas_alias(info_t *);
+int _diva_history(info_t *);
+int _divas_alias(info_t *);
 
 /* for the toem_getline_diva.c */
 ssize_t d_get_input(info_t *);

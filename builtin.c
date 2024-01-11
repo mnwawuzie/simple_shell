@@ -2,10 +2,10 @@
 
 /**
  * _diva_myexit - This defines a function that would exit the shell
- * @diva_divas_info: this Represents the d_struct containing arguments that is used to maintain the
- *          constant function prototype.
+ * @diva_divas_info: this Represents the d_struct containing arguments
+ *      that is used to maintain the constant function prototype.
  *  Return: exits with exit status (0)
- *  		if divas_info.argv[0] != "exit"
+ *          if divas_info.argv[0] != "exit"
  */
 int _diva_myexit(info_t *diva_divas_info)
 {
@@ -31,8 +31,8 @@ int _diva_myexit(info_t *diva_divas_info)
 
 /**
  * _diva_mycd - this function changes the current directory of the process
- * @diva_divas_info: this represents the d_structure containing potential arguments that is used to maintain
- *          constant function prototype.
+ * @diva_divas_info: this represents the d_structure containing potential
+ *         arguments that is used to maintain constant function prototype.
  *  Return: Always 0
  */
 int _diva_mycd(info_t *diva_divas_info)
@@ -81,8 +81,8 @@ int _diva_mycd(info_t *diva_divas_info)
 
 /**
  * _diva_myhelp - THis function changes the current directory of the process
- * @diva_divas_info: Represents the d_structure containing arguments. Used to maintain
- *          constant function prototype.
+ * @diva_divas_info: Represents the d_structure containing arguments.
+ *  Used to maintain constant function prototype.
  *  Return: 0
  */
 int _diva_myhelp(info_t *diva_divas_info)

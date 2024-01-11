@@ -2,7 +2,7 @@
 
 /**
  * d_list_len - determines length of linked list
- * @h: pointer to first node
+ * @d_h: pointer to first node
  *
  * Return: size of list
  */
@@ -79,7 +79,8 @@ size_t d_print_list(const list_t *h)
 }
 
 /**
- * divas_node_is_haystack_starts - returns node whose d_string starts with divas_prefix
+ * divas_node_is_haystack_starts - returns node whose d_string
+ *      starts with divas_prefix
  * @node: pointer to list head
  * @divas_prefix: d_stringd_list_len to match
  * @c: the next character after divas_prefix to match

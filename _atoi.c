@@ -1,7 +1,8 @@
 #include "shell.h"
 
 /**
- * diva_shell_interactive - function that returns true if the shell is in interactive mode
+ * diva_shell_interactive - function that returns true if the shell,
+ * is in interactive mode
  * @diva_divas_info: this is the d_struct address
  *
  * Return: 1 if it's on interactive mode, 0 if otherwise

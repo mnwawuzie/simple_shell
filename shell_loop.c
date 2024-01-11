@@ -99,7 +99,8 @@ void diva_find_cmd(info_t *divas_info)
 	if (!k)
 		return;
 
-	path = d_find_path(divas_info, divas_getenv(divas_info, "PATH="), divas_info->argv[0]);
+	path = d_find_path(divas_info, divas_getenv(
+		divas_info, "PATH="), divas_info->argv[0]);
 	if (path)
 	{
 		divas_info->path = path;
@@ -107,8 +108,10 @@ void diva_find_cmd(info_t *divas_info)
 	}
 	else
 	{
-		if ((diva_shell_interactive(divas_info) || divas_getenv(divas_info, "PATH=")
-			|| divas_info->argv[0][0] == '/') && d_is_d_cmd(divas_info, divas_info->argv[0]))
+		if ((diva_shell_interactive(divas_info)
+			|| divas_getenv(divas_info, "PATH=")
+			|| divas_info->argv[0][0] == '/')
+			&& d_is_d_cmd(divas_info, divas_info->argv[0]))
 			diva_fork_cmd(divas_info);
 		else if (*(divas_info->arg) != '\n')
 		{
@@ -137,7 +140,8 @@ void diva_fork_cmd(info_t *divas_info)
 	}
 	if (child_pid == 0)
 	{
-		if (execve(divas_info->path, divas_info->argv, d_get_environ(divas_info)) == -1)
+		if (execve(divas_info->path, divas_info->argv,
+			d_get_environ(divas_info)) == -1)
 		{
 			free_divas_info(divas_info, 1);
 			if (errno == EACCES)

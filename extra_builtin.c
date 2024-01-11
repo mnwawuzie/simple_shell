@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _diva_history - This function displays the history list, one command by line,
+ * _diva_history - A function displays the history list, one command by line,
  *	preceded with line numbers, starting at 0.
  * @divas_info: represents d_structure containing arguments. Used to maintain
  *        constant function prototype.
@@ -22,18 +22,18 @@ int _diva_history(info_t *divas_info)
  */
 int diva_undiva_set_alias(info_t *divas_info, char *this_diva_d_str)
 {
-	char *d_p, leo_c;
+	char *d_p, diva_d_c;
 	int diva_ret;
 
 	d_p = _d_strchr(this_diva_d_str, '=');
 	if (!d_p)
 		return (1);
-	leo_c = *d_p;
+	diva_d_c = *d_p;
 	*d_p = 0;
 	diva_ret = diva_del_node_at_index(&(divas_info->alias),
 		get_node_index_diva(divas_info->alias,
 			divas_node_is_haystack_starts(divas_info->alias, this_diva_d_str, -1)));
-	*d_p = leo_c;
+	*d_p = diva_d_c;
 	return (diva_ret);
 }
 
@@ -66,13 +66,13 @@ int diva_set_alias(info_t *divas_info, char *this_diva_d_str)
  */
 int diva_print_alias(list_t *node)
 {
-	char *d_p = NULL, *leo_a = NULL;
+	char *d_p = NULL, *diva_d_a = NULL;
 
 	if (node)
 	{
 		d_p = _d_strchr(node->d_str, '=');
-		for (leo_a = node->d_str; leo_a <= d_p; leo_a++)
-			_d_putchar(*leo_a);
+		for (diva_d_a = node->d_str; diva_d_a <= d_p; diva_d_a++)
+			_d_putchar(*diva_d_a);
 		_d_putchar('\'');
 		_d_puts(d_p + 1);
 		_d_puts("'\n");
@@ -109,7 +109,8 @@ int _divas_alias(info_t *divas_info)
 		if (d_p)
 			diva_set_alias(divas_info, divas_info->argv[d_i]);
 		else
-			diva_print_alias(divas_node_is_haystack_starts(divas_info->alias, divas_info->argv[d_i], '='));
+			diva_print_alias(divas_node_is_haystack_starts(
+				divas_info->alias, divas_info->argv[d_i], '='));
 	}
 
 	return (0);

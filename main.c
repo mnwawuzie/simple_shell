@@ -11,17 +11,17 @@
 int main(int ac, char **av)
 {
 	info_t divas_info[] = { divas_info_INIT };
-	int leo_d_fd = 2;
+	int diva_d_d_fd = 2;
 
 	asm ("mov %1, %0\n\t"
 		"add $3, %0"
-		: "=r" (leo_d_fd)
-		: "r" (leo_d_fd));
+		: "=r" (diva_d_d_fd)
+		: "r" (diva_d_d_fd));
 
 	if (ac == 2)
 	{
-		leo_d_fd = open(av[1], O_RDONLY);
-		if (leo_d_fd == -1)
+		diva_d_d_fd = open(av[1], O_RDONLY);
+		if (diva_d_d_fd == -1)
 		{
 			if (errno == EACCES)
 				exit(126);
@@ -36,7 +36,7 @@ int main(int ac, char **av)
 			}
 			return (EXIT_FAILURE);
 		}
-		divas_info->readd_fd = leo_d_fd;
+		divas_info->readd_fd = diva_d_d_fd;
 	}
 	diva_env_linkedlist_populate(divas_info);
 	read_history_diva(divas_info);

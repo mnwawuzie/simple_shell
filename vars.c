@@ -36,7 +36,8 @@ int is_diva_chain(info_t *divas_info, char *buf, size_t *p)
 }
 
 /**
- * is_diva_chain_check - checks we should continue chaining d_based on last status
+ * is_diva_chain_check - checks we should continue chaining
+ *  d_based on last status
  * @divas_info: the parameter d_struct
  * @buf: the char buffer
  * @p: address of current position in buf
@@ -45,7 +46,8 @@ int is_diva_chain(info_t *divas_info, char *buf, size_t *p)
  *
  * Return: Void
  */
-void is_diva_chain_check(info_t *divas_info, char *buf, size_t *p, size_t i, size_t len)
+void is_diva_chain_check(
+	info_t *divas_info, char *buf, size_t *p, size_t i, size_t len)
 {
 	size_t j = *p;
 
@@ -83,7 +85,8 @@ int diva_replace_d_alias(info_t *divas_info)
 
 	for (i = 0; i < 10; i++)
 	{
-		node = divas_node_is_haystack_starts(divas_info->alias, divas_info->argv[0], '=');
+		node = divas_node_is_haystack_starts(
+			divas_info->alias, divas_info->argv[0], '=');
 		if (!node)
 			return (0);
 		free(divas_info->argv[0]);
@@ -126,7 +129,8 @@ int diva_replace_d_vars(info_t *divas_info)
 				_d_strdup(d_convert_number(getpid(), 10, 0)));
 			continue;
 		}
-		node = divas_node_is_haystack_starts(divas_info->env, &divas_info->argv[i][1], '=');
+		node = divas_node_is_haystack_starts(
+			divas_info->env, &divas_info->argv[i][1], '=');
 		if (node)
 		{
 			diva_replace_d_string(&(divas_info->argv[i]),
