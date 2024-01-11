@@ -20,7 +20,7 @@ int _diva_myexit(info_t *diva_divas_info)
 			d_print_error(diva_divas_info, "Illegal number: ");
 			_diva_s_d_puts(diva_divas_info->argv[1]);
 			_diva_eputchar('\n');
-			return (1);
+			return (98);
 		}
 		diva_divas_info->err_num = _d_erratoi(diva_divas_info->argv[1]);
 		return (-2);
