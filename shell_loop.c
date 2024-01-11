@@ -9,30 +9,30 @@
  */
 int hsh(info_t *divas_info, char **av)
 {
-	ssize_t leo_r = 0;
+	ssize_t diva_r = 0;
 	int builtin_ret = 0;
 
-	while (leo_r != -1 && builtin_ret != -2)
+	while (diva_r != -1 && builtin_ret != -2)
 	{
 		clear_divas_info(divas_info);
-		if (is_shell_interactive(divas_info))
+		if (diva_shell_interactive(divas_info))
 			_d_puts("$ ");
 		_diva_eputchar(BUF_FLUSH);
-		leo_r = d_get_input(divas_info);
-		if (leo_r != -1)
+		diva_r = d_get_input(divas_info);
+		if (diva_r != -1)
 		{
 			set_divas_info(divas_info, av);
 			builtin_ret = d_find_builtin(divas_info);
 			if (builtin_ret == -1)
 				diva_find_cmd(divas_info);
 		}
-		else if (is_shell_interactive(divas_info))
+		else if (diva_shell_interactive(divas_info))
 			_d_putchar('\n');
 		free_divas_info(divas_info, 0);
 	}
 	write_history_diva(divas_info);
 	free_divas_info(divas_info, 1);
-	if (!is_shell_interactive(divas_info) && divas_info->status)
+	if (!diva_shell_interactive(divas_info) && divas_info->status)
 		exit(divas_info->status);
 	if (builtin_ret == -2)
 	{
@@ -55,13 +55,13 @@ int d_find_builtin(info_t *divas_info)
 {
 	int i, d_built_in_ret = -1;
 	builtin_table builtintbl[] = {
-		{"exit", _myexit},
+		{"exit", _diva_myexit},
 		{"env", divas_env},
-		{"help", _myhelp},
+		{"help", _diva_myhelp},
 		{"history", _diva_history},
 		{"d_setenv", _setdivaenv},
 		{"d_und_setenv", _unsetdivaenv},
-		{"cd", _mycd},
+		{"cd", _diva_mycd},
 		{"alias", _divas_alias},
 		{NULL, NULL}
 	};
@@ -94,7 +94,7 @@ void diva_find_cmd(info_t *divas_info)
 		divas_info->d_line_count_flag = 0;
 	}
 	for (i = 0, k = 0; divas_info->arg[i]; i++)
-		if (!is_delimiter(divas_info->arg[i], " \t\n"))
+		if (!is_diva_delimiter(divas_info->arg[i], " \t\n"))
 			k++;
 	if (!k)
 		return;
@@ -107,7 +107,7 @@ void diva_find_cmd(info_t *divas_info)
 	}
 	else
 	{
-		if ((is_shell_interactive(divas_info) || divas_getenv(divas_info, "PATH=")
+		if ((diva_shell_interactive(divas_info) || divas_getenv(divas_info, "PATH=")
 			|| divas_info->argv[0][0] == '/') && d_is_d_cmd(divas_info, divas_info->argv[0]))
 			diva_fork_cmd(divas_info);
 		else if (*(divas_info->arg) != '\n')

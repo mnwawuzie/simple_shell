@@ -2,7 +2,7 @@
 
 /**
  * d_get_history_file - gets the history file
- * @divas_info: parameter d_struct
+ * @divas_info: parameter struct
  *
  * Return: allocated d_string containg history file
  */
@@ -26,7 +26,7 @@ char *d_get_history_file(info_t *divas_info)
 
 /**
  * write_history_diva - creates a file, or appends to an existing file
- * @divas_info: the parameter d_struct
+ * @divas_info: the parameter struct
  *
  * Return: 1 on success, else -1
  */
@@ -55,7 +55,7 @@ int write_history_diva(info_t *divas_info)
 
 /**
  * read_history_diva - reads history from file
- * @divas_info: the parameter d_struct
+ * @divas_info: the parameter struct
  *
  * Return: histcount on success, 0 otherwise
  */
@@ -63,7 +63,7 @@ int read_history_diva(info_t *divas_info)
 {
 	int i, last = 0, d_line_count = 0;
 	ssize_t d_fd, rdlen, fsize = 0;
-	d_struct stat st;
+	struct stat st;
 	char *buf = NULL, *filename = d_get_history_file(divas_info);
 
 	if (!filename)
@@ -104,7 +104,7 @@ int read_history_diva(info_t *divas_info)
 
 /**
  * diva_build_history_list - adds entry to a history linked list
- * @divas_info: d_structure containing potential arguments. Used to maintain
+ * @divas_info: structure containing potential arguments. Used to maintain
  * @buf: buffer
  * @d_line_count: the history d_line_count, histcount
  *
@@ -125,7 +125,7 @@ int diva_build_history_list(info_t *divas_info, char *buf, int d_line_count)
 
 /**
  * diva_renumber_history - renumbers the history linked list after changes
- * @divas_info: d_structure containing potential arguments. Used to maintain
+ * @divas_info: structure containing potential arguments. Used to maintain
  *
  * Return: the new histcount
  */

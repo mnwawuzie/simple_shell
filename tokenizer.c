@@ -17,7 +17,7 @@ char **d_strtow(char *d_str, char *d)
 	if (!d)
 		d = " ";
 	for (i = 0; d_str[i] != '\0'; i++)
-		if (!is_delimiter(d_str[i], d) && (is_delimiter(d_str[i + 1], d) || !d_str[i + 1]))
+		if (!is_diva_delimiter(d_str[i], d) && (is_diva_delimiter(d_str[i + 1], d) || !d_str[i + 1]))
 			numwords++;
 
 	if (numwords == 0)
@@ -27,10 +27,10 @@ char **d_strtow(char *d_str, char *d)
 		return (NULL);
 	for (i = 0, j = 0; j < numwords; j++)
 	{
-		while (is_delimiter(d_str[i], d))
+		while (is_diva_delimiter(d_str[i], d))
 			i++;
 		k = 0;
-		while (!is_delimiter(d_str[i + k], d) && d_str[i + k])
+		while (!is_diva_delimiter(d_str[i + k], d) && d_str[i + k])
 			k++;
 		s[j] = malloc((k + 1) * sizeof(char));
 		if (!s[j])

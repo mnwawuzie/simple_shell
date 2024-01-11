@@ -2,20 +2,20 @@
 
 /**
  * d_is_d_cmd - This function determines if a file is an executable command
- * @divas_info: This is the divas_info d_struct
+ * @divas_info: This is the divas_info struct
  * @d_path: This is the path to the file
  *
  * Return: 1 true, 0 false
  */
 int d_is_d_cmd(info_t *divas_info, char *d_path)
 {
-	d_struct stat leo_st;
+	struct stat diva_st;
 
 	(void)divas_info;
-	if (!d_path || stat(d_path, &leo_st))
+	if (!d_path || stat(d_path, &diva_st))
 		return (0);
 
-	if (leo_st.st_mode & S_IFREG)
+	if (diva_st.st_mode & S_IFREG)
 	{
 		return (1);
 	}
@@ -44,7 +44,7 @@ char *now_dupl_chars(char *d_pathd_str, int start, int stop)
 
 /**
  * d_find_path - this finds this cmd in the PATH d_string
- * @divas_info: this is an divas_info d_struct
+ * @divas_info: this is an divas_info struct
  * @d_pathd_str: this is the PATH d_string
  * @cmd: represents the cmd to find
  *

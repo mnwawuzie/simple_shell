@@ -23,18 +23,18 @@ int _diva_history(info_t *divas_info)
 int diva_undiva_set_alias(info_t *divas_info, char *this_diva_d_str)
 {
 	char *d_p, leo_c;
-	int leo_ret;
+	int diva_ret;
 
 	d_p = _d_strchr(this_diva_d_str, '=');
 	if (!d_p)
 		return (1);
 	leo_c = *d_p;
 	*d_p = 0;
-	leo_ret = diva_del_node_at_index(&(divas_info->alias),
+	diva_ret = diva_del_node_at_index(&(divas_info->alias),
 		get_node_index_diva(divas_info->alias,
 			divas_node_is_haystack_starts(divas_info->alias, this_diva_d_str, -1)));
 	*d_p = leo_c;
-	return (leo_ret);
+	return (diva_ret);
 }
 
 /**

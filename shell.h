@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <d_string.h>
+#include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
@@ -13,9 +13,9 @@
 #include <errno.h>
 
 /* toem_atoi.c */
-int is_delimeter(char, char *);
-int is_alpha(int);
-int d_string_to_integer(char *);
+int is_diva_delimiter(char, char *);
+int diva_alpha(int);
+int diva_d_str_to_int(char *);
 
 /* read/write buffers */
 #define d_read_buf_SIZE 1024
@@ -43,21 +43,21 @@ extern char **environ;
 
 
 /**
- * d_struct listd_str - this is a singly linked list
+ * struct listd_str - this is a singly linked list
  * @num: this is the number field
  * @d_str: this is a d_string
  * @next: thia points to the next node
  */
-typedef d_struct listd_str
+typedef struct listd_str
 {
 	int num;
 	char *d_str;
-	d_struct listd_str *next;
+	struct listd_str *next;
 } list_t;
 
 /**
- *d_struct passdivas_info - contains pseudo-arguements to pass into a function,
- *		allowing uniform prototype for function pointer d_struct
+ *struct passdivas_info - contains pseudo-arguements to pass into a function,
+ *		allowing uniform prototype for function pointer struct
  *@arg: a d_string generated from getline containing arguements
  *@argv: an array of d_strings generated from arg
  *@path: a d_string path for the current command
@@ -77,7 +77,7 @@ typedef d_struct listd_str
  *@readd_fd: the d_fd from which to read line input
  *@histcount: the history line number count
  */
-typedef d_struct passdivas_info
+typedef struct passdivas_info
 {
 	char *arg;
 	char **argv;
@@ -105,12 +105,12 @@ typedef d_struct passdivas_info
 	0, 0, 0}
 
 /**
- *d_struct builtin - contains a builtin d_string and related function
+ *struct builtin - contains a builtin d_string and related function
  *@type: the builtin command flag
  *@func: the function
  */
 
-typedef d_struct builtin
+typedef struct builtin
 {
 	char *type;
 	int (*func)(info_t *);
@@ -167,8 +167,8 @@ void *_divs_realloc(void *, unsigned int, unsigned int);
 int d_be_free(void **);
 
 /* for the toem_atoi.c */
-int is_shell_interactive(info_t *);
-int is_delimiter(char, char *);
+int diva_shell_interactive(info_t *);
+int is_diva_delimiter(char, char *);
 int is_alpha(int);
 int d_string_to_integer(char *);
 
@@ -180,15 +180,15 @@ char *d_convert_number(long int, int, int);
 void d_remove_comments(char *);
 
 /* for the toem_builtin.c */
-int _mycd(info_t *);
-int _myhelp(info_t *);
+int _diva_mycd(info_t *);
+int _diva_myhelp(info_t *);
 
-// for the builtin_exit.c
-int _myexit(info_t *);
+/* for the builtin_exit.c */
+int _diva_myexit(info_t *);
 
 /* for the toem_builtin1.c */
-// int _diva_history(info_t *);
-// int _divas_alias(info_t *);
+ int _diva_history(info_t *);
+ int _divas_alias(info_t *);
 
 /* for the toem_getline_diva.c */
 ssize_t d_get_input(info_t *);
