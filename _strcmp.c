@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * _strcmp - a function to compare two strings
- * @s1: first string
- * @s2: second string
+ * _d_strcmp - a function to compare two d_strings
+ * @s1: first d_string
+ * @s2: second d_string
  * Return: 0.
  */
-int _strcmp(char *s1, char *s2)
+int _d_strcmp(char *s1, char *s2)
 {
 	int i;
 
